@@ -26,7 +26,7 @@ On terraform apply the output will display the url of the api endpoint
 ```bash
 Outputs:
 
-base_url = https://rtcogxe069.execute-api.us-east-1.amazonaws.com/test
+endpoint_url = https://rtcogxe069.execute-api.us-east-1.amazonaws.com/test
 ```
 You can then curl that endpoint to obtain the response
 ```bash

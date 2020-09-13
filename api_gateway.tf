@@ -40,6 +40,6 @@ resource "aws_api_gateway_deployment" "hello_world_deployment" {
   stage_name  = "test"
 }
 
-output "base_url" {
+output "endpoint_url" {
   value = aws_api_gateway_deployment.hello_world_deployment.invoke_url
 }

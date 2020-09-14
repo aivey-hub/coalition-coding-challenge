@@ -26,10 +26,10 @@ On terraform apply the output will display the url of the api endpoint
 ```bash
 Outputs:
 
-endpoint_url = https://rtcogxe069.execute-api.us-east-1.amazonaws.com/test
+endpoint_url = https://rtcogxe069.execute-api.us-east-1.amazonaws.com/helloWorld
 ```
 You can then curl that endpoint to obtain the response
 ```bash
-aivey-mac:coalition-coding-challenge aivey$ curl https://rtcogxe069.execute-api.us-east-1.amazonaws.com/test
-{"message": "hello world", "timestamp": "2020-09-13 19:56:07.686188"}
+aivey-mac:coalition-coding-challenge aivey$ curl https://rtcogxe069.execute-api.us-east-1.amazonaws.com/helloWorld
+{"message": "hello world", "timestamp": "2020-09-14 17:29:19.791079"}
 ```

@@ -3,6 +3,7 @@ resource "aws_api_gateway_rest_api" "hello_world_api" {
   description = "simple hello world api"
 }
 
+##specifies incoming requests are routed to the lambda
 resource "aws_api_gateway_integration" "lambda" {
   rest_api_id = aws_api_gateway_rest_api.hello_world_api.id
   resource_id = aws_api_gateway_method.proxy.resource_id
@@ -13,6 +14,8 @@ resource "aws_api_gateway_integration" "lambda" {
   uri                     = aws_lambda_function.hello_world.invoke_arn
 }
 
+
+##root resources of REST API object
 resource "aws_api_gateway_method" "proxy_root" {
   rest_api_id   = aws_api_gateway_rest_api.hello_world_api.id
   resource_id   = aws_api_gateway_rest_api.hello_world_api.root_resource_id
@@ -30,6 +33,8 @@ resource "aws_api_gateway_integration" "lambda_root" {
   uri                     = aws_lambda_function.hello_world.invoke_arn
 }
 
+
+##activates the configuration and exposes the API at a URL
 resource "aws_api_gateway_deployment" "hello_world_deployment" {
   depends_on = [
     aws_api_gateway_integration.lambda,
@@ -37,9 +42,10 @@ resource "aws_api_gateway_deployment" "hello_world_deployment" {
   ]
 
   rest_api_id = aws_api_gateway_rest_api.hello_world_api.id
-  stage_name  = "test"
+  stage_name  = "helloWorld"
 }
 
+##outpoint endpoint url for validation
 output "endpoint_url" {
   value = aws_api_gateway_deployment.hello_world_deployment.invoke_url
 }
